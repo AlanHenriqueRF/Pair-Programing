@@ -22,7 +22,7 @@ export async function getBook(req: Request, res: Response) {
 }
 
 export async function createBook(req: Request, res: Response) {
-  const book = req.body as CreateBook;
+  const book = req.body as CreateBook ;
   await bookService.createBook(book);
   res.sendStatus(httpStatus.CREATED);
 }

@@ -1,3 +1,4 @@
+import { Books } from "@prisma/client";
 import { notFoundError } from "../errors/not-found";
 import { CreateBook } from "../protocols/book";
 import { CreateReview } from "../protocols/review";
@@ -22,7 +23,7 @@ export async function createBook(book: CreateBook) {
 }
 
 export async function reviewBook(review: CreateReview) {
-  await getBook(review.bookId); // check if the book exists
+  const book = await getBook(review.bookId); // check if the book exists
 
-  return await booksRepository.reviewBook(review);
+  return await booksRepository.reviewBook(book,review);
 }

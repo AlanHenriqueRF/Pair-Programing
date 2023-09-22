@@ -1,3 +1,5 @@
+import { Books } from "@prisma/client";
+
 export type Book = {
   id: number;
   title: string;
@@ -9,4 +11,4 @@ export type Book = {
   grade: number;
 };
 
-export type CreateBook = Omit<Book, "id" | "read" | "review" | "grade">;
+export type CreateBook = Omit<Books, "id" >; //| "read" | "review" | "grade" 
